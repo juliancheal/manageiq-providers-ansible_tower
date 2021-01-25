@@ -19,10 +19,8 @@
 :log:
   :level_ansible_tower: info
 :workers:
-  :worker_base:
-    :event_catcher:
-      :event_catcher_ansible_tower:
-        :poll: 20.seconds
-    :queue_worker_base:
-      :ems_refresh_worker:
-        :ems_refresh_worker_ansible_tower_automation: {}
+  :ems_refresh_worker_ansible_tower_automation:
+    :inherits_from: ems_refresh_worker
+  :event_catcher_ansible_tower:
+    :inherits_from: event_catcher
+    :poll: 20.seconds
